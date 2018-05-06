@@ -4,11 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverFactory {
-	private WebDriver driver;
+	private static WebDriver driver;
 	
 	private DriverFactory() {}
 	
-	public WebDriver getDriver() {
+	public static WebDriver getDriver() {
 		if ( driver == null ) {
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
@@ -16,7 +16,7 @@ public class DriverFactory {
 		return driver;
 	}
 	
-	public void destroyDriver() {
+	public static void destroyDriver() {
 		if ( driver != null  ) {
 			driver.quit();
 			driver = null;
