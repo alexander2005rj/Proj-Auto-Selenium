@@ -3,6 +3,7 @@ package br.com.github.alexander2005rj.core;
 import static br.com.github.alexander2005rj.core.DriverFactory.*;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 public class BasePage {
 	
@@ -24,6 +25,12 @@ public class BasePage {
 		inserirTexto( By.id( id ) , texto);
 	}
 	
+	public void inserirTextoComTabulacao( By by, String texto ) {
+		getDriver().findElement( by ).click();
+		getDriver().findElement( by ).sendKeys( texto );
+		getDriver().findElement( by ).sendKeys( Keys.TAB );
+	}
+	
 	/******** Botões ********/
 	
 	public void clicarNoBotao( By by ) {
@@ -37,8 +44,8 @@ public class BasePage {
 	
 	/******** Links ********/
 	
-	public void clicarNoLink() {
-		
+	public void clicarNoLink( By by ) {
+		getDriver().findElement( by ).click();
 	}
 	
 }
